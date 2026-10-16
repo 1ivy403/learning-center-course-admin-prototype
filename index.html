@@ -27,7 +27,7 @@
       .workspace { display: block; padding: 0 0 172px; }
       .page-frame { width: 100%; border: 0; }
       .controls { position: fixed; z-index: 10; right: 12px; bottom: 12px; top: auto; width: calc(100% - 24px); }
-      .control-list { grid-template-columns: 1fr 1fr; }
+      .control-list { grid-template-columns: repeat(3, 1fr); }
       .state dl { grid-template-columns: 64px 1fr; }
     }
   </style>
@@ -35,13 +35,14 @@
 <body>
   <main class="workspace">
     <section class="page-frame" aria-label="课程编辑页面">
-      <img id="screen" src="./pen-course-admin-assets/rBUs1.png?v=3" alt="课程编辑初始状态" />
+      <img id="screen" src="./pen-course-admin-assets/rBUs1.png?v=4" alt="课程编辑初始状态" />
     </section>
     <aside class="controls" aria-label="原型状态触发">
       <h1>状态触发</h1>
       <div class="control-list">
         <button type="button" data-state="ai" aria-pressed="false">AI 已写入</button>
         <button type="button" data-state="fallback" aria-pressed="false">默认值已写入</button>
+        <button type="button" data-state="manual" aria-pressed="false">人工修改</button>
       </div>
       <div class="state" aria-live="polite">
         <p class="state-label">当前状态</p>
@@ -57,7 +58,7 @@
   <script>
     const states = {
       ai: {
-        image: "./pen-course-admin-assets/JrDc9.png?v=3",
+        image: "./pen-course-admin-assets/JrDc9.png?v=4",
         alt: "AI 已写入状态",
         title: "AI 已写入",
         difficulty: "初级",
@@ -65,12 +66,20 @@
         tags: "已写入数据库"
       },
       fallback: {
-        image: "./pen-course-admin-assets/lgSqg.png?v=3",
+        image: "./pen-course-admin-assets/lgSqg.png?v=4",
         alt: "默认值已写入状态",
         title: "默认值已写入",
         difficulty: "其他",
         category: "其他",
         tags: "空"
+      },
+      manual: {
+        image: "./pen-course-admin-assets/UkFWP.png?v=4",
+        alt: "人工修改状态",
+        title: "人工修改",
+        difficulty: "中级",
+        category: "AI应用开发",
+        tags: "保持当前数据库值"
       }
     };
 
